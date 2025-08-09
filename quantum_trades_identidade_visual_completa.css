@@ -1,0 +1,756 @@
+/* ========================================
+   QUANTUM TRADES - IDENTIDADE VISUAL COMPLETA
+   Design System Oficial - Versão Final
+   ======================================== */
+
+/* ========================================
+   1. VARIÁVEIS CSS GLOBAIS
+   ======================================== */
+
+:root {
+    /* === CORES PRIMÁRIAS QUANTUM === */
+    --primary-blue: #1a1a2e;           /* Azul principal escuro */
+    --secondary-blue: #16213e;         /* Azul secundário */
+    --accent-blue: #0f3460;            /* Azul de destaque */
+    
+    /* === CORES DOURADAS QUANTUM === */
+    --quantum-gold: #ffd700;           /* Dourado principal */
+    --gold-light: #ffed4e;             /* Dourado claro */
+    --gold-dark: #b8860b;              /* Dourado escuro */
+    
+    /* === GRADIENTES OFICIAIS === */
+    --gradient-main: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    --gradient-gold: linear-gradient(135deg, #ffd700, #ffed4e);
+    --gradient-card: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+    
+    /* === CORES DE ESTADO === */
+    --success-color: #4CAF50;          /* Verde sucesso */
+    --warning-color: #FF9800;          /* Laranja aviso */
+    --error-color: #F44336;            /* Vermelho erro */
+    --info-color: #2196F3;             /* Azul informação */
+    
+    /* === CORES DE TEXTO === */
+    --text-primary: #ffffff;           /* Texto principal branco */
+    --text-secondary: #b0b0b0;         /* Texto secundário cinza */
+    --text-muted: #808080;             /* Texto esmaecido */
+    --text-gold: #ffd700;              /* Texto dourado */
+    
+    /* === TIPOGRAFIA === */
+    --font-family-primary: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-secondary: 'Roboto', Arial, sans-serif;
+    
+    /* === TAMANHOS DE FONTE === */
+    --font-size-xs: 0.75rem;           /* 12px */
+    --font-size-sm: 0.875rem;          /* 14px */
+    --font-size-base: 1rem;            /* 16px */
+    --font-size-lg: 1.125rem;          /* 18px */
+    --font-size-xl: 1.25rem;           /* 20px */
+    --font-size-2xl: 1.5rem;           /* 24px */
+    --font-size-3xl: 1.875rem;         /* 30px */
+    --font-size-4xl: 2.25rem;          /* 36px */
+    
+    /* === PESOS DE FONTE === */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    
+    /* === ESPAÇAMENTOS === */
+    --spacing-xs: 0.25rem;             /* 4px */
+    --spacing-sm: 0.5rem;              /* 8px */
+    --spacing-md: 1rem;                /* 16px */
+    --spacing-lg: 1.5rem;              /* 24px */
+    --spacing-xl: 2rem;                /* 32px */
+    --spacing-2xl: 3rem;               /* 48px */
+    --spacing-3xl: 4rem;               /* 64px */
+    
+    /* === BORDAS E RAIOS === */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    --border-radius-2xl: 20px;
+    --border-radius-full: 50%;
+    
+    /* === SOMBRAS === */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    --shadow-gold: 0 8px 25px rgba(255, 215, 0, 0.4);
+    
+    /* === TRANSIÇÕES === */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* === Z-INDEX === */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}
+
+/* ========================================
+   2. RESET E BASE STYLES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--gradient-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   3. LOGO OFICIAL QUANTUM TRADES
+   ======================================== */
+
+.quantum-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--quantum-gold);
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+.quantum-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.3));
+}
+
+.quantum-logo-image {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: var(--transition-normal);
+}
+
+/* Tamanhos específicos do logo */
+.quantum-logo--small .quantum-logo-image {
+    width: 32px;
+    height: 32px;
+}
+
+.quantum-logo--large .quantum-logo-image {
+    width: 60px;
+    height: 60px;
+}
+
+.quantum-logo--login .quantum-logo-image {
+    width: 125px;
+    height: 125px;
+}
+
+/* ========================================
+   4. TIPOGRAFIA QUANTUM
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: var(--font-size-4xl);
+    color: var(--quantum-gold);
+}
+
+h2 {
+    font-size: var(--font-size-3xl);
+    color: var(--quantum-gold);
+}
+
+h3 {
+    font-size: var(--font-size-2xl);
+}
+
+h4 {
+    font-size: var(--font-size-xl);
+}
+
+h5 {
+    font-size: var(--font-size-lg);
+}
+
+h6 {
+    font-size: var(--font-size-base);
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+.text-gold {
+    color: var(--quantum-gold);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+/* ========================================
+   5. BOTÕES QUANTUM
+   ======================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    user-select: none;
+    white-space: nowrap;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Botão Primário (Dourado) */
+.btn-primary {
+    background: var(--gradient-gold);
+    color: var(--primary-blue);
+    border: 2px solid transparent;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+/* Botão Secundário (Outline Dourado) */
+.btn-secondary {
+    background: transparent;
+    color: var(--quantum-gold);
+    border: 2px solid var(--quantum-gold);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--quantum-gold);
+    color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+/* Botão de Sucesso */
+.btn-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+/* Botão de Perigo */
+.btn-danger {
+    background: var(--error-color);
+    color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #da190b;
+    transform: translateY(-2px);
+}
+
+/* Tamanhos de botões */
+.btn-sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.btn-lg {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-lg);
+}
+
+/* ========================================
+   6. CARDS E CONTAINERS
+   ======================================== */
+
+.quantum-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    padding: var(--spacing-xl);
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+}
+
+.quantum-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    color: var(--quantum-gold);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.card-body {
+    color: var(--text-primary);
+}
+
+.card-footer {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+/* ========================================
+   7. HEADER E NAVEGAÇÃO
+   ======================================== */
+
+.quantum-header {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    padding: var(--spacing-md) var(--spacing-xl);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-fixed);
+    transition: var(--transition-normal);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+/* Menu Hambúrguer */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    gap: 4px;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: var(--quantum-gold);
+    transition: var(--transition-normal);
+    border-radius: 2px;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ========================================
+   8. FORMULÁRIOS
+   ======================================== */
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--border-radius-md);
+    background: rgba(26, 26, 46, 0.95);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    transition: var(--transition-normal);
+}
+
+.form-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--quantum-gold);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.form-input:invalid {
+    border-color: var(--error-color);
+}
+
+/* ========================================
+   9. INDICADORES DE STATUS
+   ======================================== */
+
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: var(--border-radius-full);
+    margin-right: var(--spacing-sm);
+}
+
+.status-online {
+    background: var(--success-color);
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.status-offline {
+    background: var(--error-color);
+    box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+}
+
+.status-warning {
+    background: var(--warning-color);
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+}
+
+/* ========================================
+   10. GRID SYSTEM
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 calc(-1 * var(--spacing-md));
+}
+
+.col {
+    flex: 1;
+    padding: 0 var(--spacing-md);
+}
+
+.col-1 { flex: 0 0 8.333333%; }
+.col-2 { flex: 0 0 16.666667%; }
+.col-3 { flex: 0 0 25%; }
+.col-4 { flex: 0 0 33.333333%; }
+.col-6 { flex: 0 0 50%; }
+.col-8 { flex: 0 0 66.666667%; }
+.col-9 { flex: 0 0 75%; }
+.col-12 { flex: 0 0 100%; }
+
+/* ========================================
+   11. UTILITÁRIOS
+   ======================================== */
+
+/* Espaçamentos */
+.m-0 { margin: 0; }
+.m-1 { margin: var(--spacing-xs); }
+.m-2 { margin: var(--spacing-sm); }
+.m-3 { margin: var(--spacing-md); }
+.m-4 { margin: var(--spacing-lg); }
+.m-5 { margin: var(--spacing-xl); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+.p-5 { padding: var(--spacing-xl); }
+
+/* Display */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+/* Flexbox */
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.flex-column { flex-direction: column; }
+
+/* Texto */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* ========================================
+   12. RESPONSIVIDADE
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .quantum-header {
+        padding: var(--spacing-md);
+    }
+    
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .header-actions .btn {
+        display: none;
+    }
+    
+    .col-md-12 { flex: 0 0 100%; }
+    .col-md-6 { flex: 0 0 50%; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    :root {
+        --font-size-4xl: 1.875rem;
+        --font-size-3xl: 1.5rem;
+        --font-size-2xl: 1.25rem;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .quantum-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+    
+    .col-sm-12 { flex: 0 0 100%; }
+}
+
+/* ========================================
+   13. ANIMAÇÕES E EFEITOS
+   ======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* ========================================
+   14. TEMAS ESPECÍFICOS
+   ======================================== */
+
+/* Tema Login */
+.login-page {
+    background: var(--gradient-main);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius-2xl);
+    padding: var(--spacing-3xl);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: var(--shadow-xl);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Tema Dashboard */
+.dashboard-page {
+    padding-top: 80px;
+    min-height: 100vh;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* ========================================
+   15. COMPONENTES ESPECÍFICOS QUANTUM
+   ======================================== */
+
+/* Widget de Preço */
+.price-widget {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.price-value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--quantum-gold);
+}
+
+.price-change {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+}
+
+.price-change.positive {
+    color: var(--success-color);
+}
+
+.price-change.negative {
+    color: var(--error-color);
+}
+
+/* Gráfico Container */
+.chart-container {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    min-height: 400px;
+}
+
+/* Watchlist */
+.watchlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    transition: var(--transition-normal);
+}
+
+.watchlist-item:hover {
+    background: rgba(255, 215, 0, 0.05);
+}
+
+/* ========================================
+   16. IMPRESSÃO
+   ======================================== */
+
+@media print {
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+    
+    .quantum-header,
+    .hamburger-menu,
+    .btn {
+        display: none !important;
+    }
+    
+    .quantum-card {
+        border: 1px solid #ccc !important;
+        break-inside: avoid;
+    }
+}
+
+/* ========================================
+   FIM DA IDENTIDADE VISUAL QUANTUM TRADES
+   ======================================== */
+
